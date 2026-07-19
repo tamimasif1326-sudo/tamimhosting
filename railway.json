@@ -1,8 +1,8 @@
 {
   "build": {
     "builder": "NIXPACKS",
-    "nixPkgs": ["python311", "nodejs_20", "gcc"],
-    "buildCommand": "pip install -r requirements.txt"
+    "nixPkgs": ["python3", "nodejs"],
+    "buildCommand": "pip3 install -r requirements.txt"
   },
   "deploy": {
     "startCommand": "gunicorn -w 1 --threads 8 -b 0.0.0.0:$PORT app:app"
