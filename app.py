@@ -1,6 +1,6 @@
 """
-Pro VPS Panel - Railway deployable
-Owner: shappno / shappno_codex
+TAMIM VPS Panel - Railway deployable
+Owner: TAMIM / TAMIM_CODEx
 """
 import os, json, time, uuid, shutil, subprocess, threading, signal, secrets
 from collections import deque
@@ -20,12 +20,12 @@ FILES_ROOT = APP_DIR / "user_files"
 DATA_DIR.mkdir(exist_ok=True)
 FILES_ROOT.mkdir(exist_ok=True)
 
-OWNER_USER = "shappno"
-OWNER_PASS = "shappno_codex"
+OWNER_USER = "TAMIM"
+OWNER_PASS = "TAMIM_CODEx"
 
 DEFAULT_PRICING = {
     "currency": "₹",
-    "contact": "Telegram: @shappno_044x",
+    "contact": "Telegram: @TAMIM_C0DEx",
     "plans": [
         {"name": "Starter", "duration": "24 Hours",  "price": "49",  "features": "1 file run, 512MB RAM, Real-time logs"},
         {"name": "Basic",   "duration": "7 Days",    "price": "199", "features": "Multi-file upload, pip/npm install, 24/7 uptime"},
