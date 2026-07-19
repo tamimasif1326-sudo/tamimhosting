@@ -1,44 +1,17 @@
 {% extends "base.html" %}
 {% block body %}
-<div class="wrap">
-  <section style="text-align:center;padding:60px 0 40px">
-    <div class="badge badge-on float" style="margin-bottom:20px">🚀 LIVE ON VPS</div>
-    <h1>Run Your Code on a <span class="gradient-text">Real VPS</span><br>in Seconds</h1>
-    <p class="muted" style="font-size:17px;max-width:640px;margin:18px auto">
-      Upload <code>.py</code>, <code>.js</code>, <code>.sh</code> files. Install modules with one command.
-      Watch real-time logs. Start, stop & restart any time.
-    </p>
-    <div style="margin-top:28px">
-      <a href="/login" class="btn btn-primary">Get Started →</a>
-      <a href="/pricing" class="btn btn-ghost" style="margin-left:10px">View Pricing</a>
+<div style="display:flex;align-items:center;justify-content:center;padding:60px 20px;min-height:calc(100vh - 200px)">
+  <form class="card" method="post" style="width:380px">
+    <div style="text-align:center;margin-bottom:18px">
+      <div style="width:56px;height:56px;border-radius:14px;background:var(--grad);display:inline-grid;place-items:center;font-size:26px;box-shadow:0 10px 30px rgba(99,102,241,0.45)">🔐</div>
+      <h2 style="margin-top:14px">Welcome Back</h2>
+      <p class="muted" style="margin:0">Sign in to your SHAPPNO Vps panel</p>
     </div>
-  </section>
-
-  <section style="margin-top:40px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
-      <div class="card"><h3>⚡ Instant Deploy</h3><p class="muted">Upload any script and run it on real Railway servers with one click.</p></div>
-      <div class="card"><h3>📦 Module Install</h3><p class="muted">Run <code>pip install</code> or <code>npm install</code> right from the dashboard.</p></div>
-      <div class="card"><h3>📜 Live Logs</h3><p class="muted">Real-time stdout/stderr streaming — see exactly what's happening.</p></div>
-      <div class="card"><h3>🔐 Owner Control</h3><p class="muted">Time-bound accounts with auto-expiry & auto-login links.</p></div>
-    </div>
-  </section>
-
-  <section style="margin-top:60px">
-    <h2 style="text-align:center">💎 Pricing Plans</h2>
-    <p class="muted" style="text-align:center;margin-bottom:24px">Choose the plan that fits your project</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
-      {% for p in pricing.plans %}
-      <div class="card" style="text-align:center;{% if loop.index == 3 %}border:1px solid rgba(99,102,241,0.5);box-shadow:0 10px 40px rgba(99,102,241,0.25){% endif %}">
-        {% if loop.index == 3 %}<div class="badge badge-on" style="background:var(--grad);color:#fff;border:0;margin-bottom:10px">POPULAR</div>{% endif %}
-        <h3 style="font-size:18px">{{p.name}}</h3>
-        <div style="font-size:34px;font-weight:800;margin:10px 0" class="gradient-text">{{pricing.currency}}{{p.price}}</div>
-        <div class="muted" style="font-size:13px;margin-bottom:14px">{{p.duration}}</div>
-        <div style="font-size:13px;color:#c7cce8;min-height:60px">{{p.features}}</div>
-        <a href="/login" class="btn btn-primary" style="margin-top:14px;width:100%;justify-content:center">Choose Plan</a>
-      </div>
-      {% endfor %}
-    </div>
-    {% if pricing.contact %}<p class="muted" style="text-align:center;margin-top:24px">📞 Contact owner to buy: <b style="color:#c7d2fe">{{pricing.contact}}</b></p>{% endif %}
-  </section>
+    {% if error %}<div style="background:rgba(239,68,68,0.15);color:#fca5a5;padding:11px;border-radius:10px;margin-bottom:12px;font-size:13px;border:1px solid rgba(239,68,68,0.3)">⚠ {{error}}</div>{% endif %}
+    <input name="username" placeholder="Username" autofocus required style="width:100%;margin-bottom:10px">
+    <input name="password" type="password" placeholder="Password" required style="width:100%;margin-bottom:14px">
+    <button class="btn btn-primary" style="width:100%;justify-content:center">Login →</button>
+    <p class="muted" style="text-align:center;margin:14px 0 0;font-size:12px">Owner & User accounts supported</p>
+  </form>
 </div>
 {% endblock %}
